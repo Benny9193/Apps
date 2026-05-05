@@ -1,0 +1,247 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111418;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-fg: #ffffff;
+  --danger: #dc2626;
+  --ok: #16a34a;
+  --warn: #d97706;
+  --bad: #dc2626;
+  --card: #f8fafc;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0d10;
+    --fg: #e8eaed;
+    --muted: #9aa1a9;
+    --border: #232730;
+    --card: #14181d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  min-height: 100dvh;
+}
+
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.app-header h1 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.app-footer {
+  margin-top: 1rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+/* Tracker */
+
+.tracker {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.odometer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 0 0.5rem;
+}
+
+.odometer .big {
+  font-size: 3rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.odometer .sub {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.signal {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.signal .ok {
+  color: var(--ok);
+}
+
+.signal .warn {
+  color: var(--warn);
+}
+
+.signal .bad {
+  color: var(--bad);
+}
+
+.error {
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  color: var(--danger);
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  flex: 1;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button.primary {
+  background: var(--primary);
+  color: var(--primary-fg);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+button.ghost {
+  background: transparent;
+}
+
+button.ghost.danger {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 35%, var(--border));
+  flex: 0 0 auto;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+/* Trips */
+
+.trips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trips-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.trips h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.trips .count {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.trips-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.trips-actions button {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.85rem;
+  flex: 0 0 auto;
+}
+
+.trip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.trip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.trip-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.trip-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.trip-stats {
+  font-variant-numeric: tabular-nums;
+}
+
+.trips.empty {
+  text-align: center;
+  padding: 1rem 0;
+}
